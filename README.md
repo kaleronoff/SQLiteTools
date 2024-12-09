@@ -1,7 +1,7 @@
 # SQLiteTools
-SQLites Tools is a SQL tools for fixe, made change, analyse SQLites Database
+SQLite Tools is a powerful SQL tool for fixing errors, making changes, analysing and managing your SQLite database.
 
 # How to use ?
 
-For use SQLite tools, we have a help command for see available commands
+For use SQLites tools, we have a help command to see available commands
 You can repair malformed SQLite, see existing table, parse a SQLite to MariaDB and so much more
