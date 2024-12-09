@@ -4,14 +4,12 @@ import shutil
 
 
 def backup_db(db_path):
-    """Crée une sauvegarde de la base de données."""
     backup_path = f"{db_path}.backup"
     shutil.copy(db_path, backup_path)
     print(f"Save created at : {backup_path}")
 
 
 def check_db(db_path):
-    """Vérifie l'intégrité de la base de données SQLite."""
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
@@ -29,7 +27,6 @@ def check_db(db_path):
 
 
 def repair_db(db_path):
-    """Répare la base de données SQLite."""
     backup_db(db_path)
 
     conn = sqlite3.connect(db_path)
@@ -54,7 +51,6 @@ def repair_db(db_path):
 
 
 def list_tables(db_path):
-    """Liste toutes les tables de la base de données SQLite."""
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
@@ -74,7 +70,6 @@ def list_tables(db_path):
 
 
 def view_table(db_path, table_name):
-    """Affiche les valeurs d'une table spécifique dans la base de données SQLite."""
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
@@ -94,7 +89,6 @@ def view_table(db_path, table_name):
 
 
 def set_value(db_path, table_name, old_value, new_value):
-    """Met à jour les valeurs d'une table spécifique dans la base de données SQLite."""
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
@@ -109,7 +103,6 @@ def set_value(db_path, table_name, old_value, new_value):
 
 
 def parse_db(db_path, target_db):
-    """Convertit le dump SQLite pour une base de données cible (MySQL, MariaDB, etc.)."""
     with open(db_path, 'r') as file:
         sql_script = file.read()
 
@@ -143,7 +136,6 @@ def parse_db(db_path, target_db):
 
 
 def dump_db(db_path, output_file):
-    """Effectue un dump de la base de données SQLite dans un fichier .sql."""
     conn = sqlite3.connect(db_path)
     with open(output_file, 'w') as file:
         for line in conn.iterdump():
